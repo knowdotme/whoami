@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul — A Man Worth Knowing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;
+  --ink:#0D0D0D;
+  --rust:#C4441C;
+  --gold:#B8933F;
+  --sage:#4A5C4E;
+  --blush:#E8C4B4;
+  --paper:#FAF7F2;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',serif;overflow-x:hidden;cursor:none;}
+#cur{position:fixed;width:12px;height:12px;background:var(--rust);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply}
+#cur.big{width:60px;height:60px;background:rgba(196,68,28,0.15)}
+.marquee-wrap{overflow:hidden;background:var(--ink);padding:10px 0;position:relative;z-index:10}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 18s linear infinite}
+.marquee-track span{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.25em;color:var(--cream);padding:0 40px;opacity:.7}
+.marquee-track span.accent{color:var(--rust);opacity:1}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;}
+.hero-left{grid-column:1;grid-row:1/4;padding:60px 48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(13,13,13,0.12);position:relative;}
+.hero-right{grid-column:2;grid-row:1/4;position:relative;overflow:hidden;background:var(--ink);min-height:100vh;}
+.hero-photo-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a1a1a 0%,#2d1810 40%,#0d0d0d 100%);}
+.hero-photo-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 60%,rgba(196,68,28,0.25) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 80% 20%,rgba(184,147,63,0.15) 0%,transparent 50%);}
+.hero-num{font-family:'Bebas Neue',sans-serif;font-size:200px;line-height:1;color:var(--ink);opacity:.04;position:absolute;bottom:-20px;right:-20px;pointer-events:none;user-select:none;}
+.hero-topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:auto;}
+.hero-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);}
+.hero-issue{font-size:11px;color:rgba(13,13,13,.4);letter-spacing:.1em;text-align:right;line-height:1.8;}
+.hero-headline{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px;}
+.name-mega{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,180px);line-height:.88;letter-spacing:-.01em;color:var(--ink);position:relative;}
+.name-mega .stroke{-webkit-text-stroke:2px var(--ink);color:transparent;display:block;}
+.name-sub{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,28px);font-style:italic;color:var(--rust);margin-top:12px;letter-spacing:.02em;}
+.hero-desc{font-size:13px;line-height:1.9;color:rgba(13,13,13,.6);max-width:340px;margin-top:24px;border-left:2px solid var(--rust);padding-left:20px;}
+.hero-stats{display:flex;gap:0;border-top:1px solid rgba(13,13,13,0.12);padding-top:32px;margin-top:40px;}
+.stat{flex:1;padding-right:24px;border-right:1px solid rgba(13,13,13,0.1);margin-right:24px;}
+.stat:last-child{border:none;margin:0;padding:0}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--ink);letter-spacing:-.01em;}
+.stat-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(13,13,13,.4)}
+.hero-right-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 40px;}
+.hero-right-tag{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.4);margin-bottom:16px;}
+.hero-right-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--cream);line-height:1.35;margin-bottom:32px;}
+.hero-right-quote em{color:var(--rust);font-style:normal}
+.scroll-hint{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,.2)}
+.chapter-mark{display:flex;align-items:center;gap:0;padding:0 48px;overflow:hidden;}
+.chapter-mark .ch-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,18vw,220px);line-height:1;color:var(--ink);opacity:.05;flex-shrink:0;}
+.chapter-mark .ch-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,64px);font-weight:900;color:var(--ink);padding-left:32px;flex:1;}
+.chapter-mark .ch-title em{color:var(--rust);font-style:italic}
+.chapter-mark .ch-line{flex:1;height:1px;background:var(--ink);opacity:.12;margin-left:32px}
+.about{display:grid;grid-template-columns:1fr 1.2fr;min-height:80vh;background:var(--paper);}
+.about-left{padding:80px 48px;border-right:1px solid rgba(13,13,13,0.08);display:flex;flex-direction:column;gap:48px;}
+.about-right{padding:80px 48px;display:flex;flex-direction:column;justify-content:center;}
+.pullquote{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,52px);font-weight:400;line-height:1.2;color:var(--ink);}
+.pullquote em{color:var(--rust);font-style:italic}
+.body-text{font-size:14px;line-height:2;color:rgba(13,13,13,.65);}
+.body-text strong{color:var(--ink);font-weight:700}
+.trait-grid{display:flex;flex-direction:column;gap:0}
+.trait-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(13,13,13,.07);transition:all .2s;}
+.trait-row:hover{padding-left:8px}
+.trait-row:last-child{border:none}
+.t-emoji{font-size:20px;flex-shrink:0}
+.t-text{font-size:13px;color:var(--ink);line-height:1.5}
+.t-tag{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.25em;padding:4px 10px;background:var(--ink);color:var(--cream);flex-shrink:0;}
+.career{background:var(--ink);padding:100px 48px;position:relative;overflow:hidden;}
+.career::before{content:'WORK';position:absolute;right:-20px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,255,255,.02);letter-spacing:.1em;pointer-events:none;}
+.career-header{margin-bottom:72px}
+.career-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);margin-bottom:16px}
+.career-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);font-weight:900;color:var(--cream);line-height:1;}
+.career-title em{font-style:italic;color:var(--gold)}
+.jobs{display:flex;flex-direction:column;gap:0}
+.job{display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:start;padding:36px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s;}
+.job:hover{padding-left:16px}
+.job:last-child{border:none}
+.job-year{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.1em;color:rgba(255,255,255,.2);padding-top:4px;}
+.job-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--cream);margin-bottom:6px;}
+.job-co{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+.job-desc{font-size:13px;line-height:1.9;color:rgba(255,255,255,.4);max-width:540px}
+.job-badge{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.2em;padding:6px 14px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);white-space:nowrap;align-self:flex-start;}
+.hobbies{background:var(--cream);padding:100px 0}
+.hobbies-header{padding:0 48px;margin-bottom:72px}
+.hobbies-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);margin-bottom:16px}
+.hobbies-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);font-weight:900;color:var(--ink);line-height:1;}
+.hobbies-title em{font-style:italic;color:var(--sage)}
+.hobbies-strip{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:0 48px;cursor:grab;-webkit-overflow-scrolling:touch;}
+.hobbies-strip:active{cursor:grabbing}
+.hobbies-strip::-webkit-scrollbar{display:none}
+.hobby{flex-shrink:0;width:280px;height:380px;position:relative;overflow:hidden;margin-right:20px;background:var(--paper);border:1px solid rgba(13,13,13,.08);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;transition:all .35s cubic-bezier(.25,.46,.45,.94);}
+.hobby:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(13,13,13,.12)}
+.hobby-bg{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:80px;opacity:.08;transition:opacity .3s,transform .3s;}
+.hobby:hover .hobby-bg{opacity:.15;transform:scale(1.1)}
+.hobby-num{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.25em;color:rgba(13,13,13,.2);margin-bottom:auto;position:relative;z-index:1;}
+.hobby-name-big{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--ink);position:relative;z-index:1;margin-bottom:8px;}
+.hobby-desc-s{font-size:11px;line-height:1.7;color:rgba(13,13,13,.5);position:relative;z-index:1;}
+.hobby[data-color="rust"]{background:#1a0800}
+.hobby[data-color="rust"] .hobby-num{color:rgba(255,255,255,.2)}
+.hobby[data-color="rust"] .hobby-name-big{color:var(--cream)}
+.hobby[data-color="rust"] .hobby-desc-s{color:rgba(255,255,255,.4)}
+.hobby[data-color="sage"]{background:#1a2010}
+.hobby[data-color="sage"] .hobby-num{color:rgba(255,255,255,.2)}
+.hobby[data-color="sage"] .hobby-name-big{color:var(--cream)}
+.hobby[data-color="sage"] .hobby-desc-s{color:rgba(255,255,255,.4)}
+.looking{background:var(--paper);display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
+.looking-left{padding:100px 48px;border-right:1px solid rgba(13,13,13,.08);display:flex;flex-direction:column;justify-content:center;}
+.looking-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);margin-bottom:20px}
+.looking-big{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:900;color:var(--ink);line-height:1.1;margin-bottom:32px;}
+.looking-big em{color:var(--rust);font-style:italic}
+.looking-body{font-size:14px;line-height:2;color:rgba(13,13,13,.55);max-width:400px}
+.looking-right{padding:100px 48px;display:flex;flex-direction:column;gap:0;justify-content:center;}
+.flag-row{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(13,13,13,.07);}
+.flag-row:last-child{border:none}
+.flag-label{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.25em;color:rgba(13,13,13,.35);flex-shrink:0;width:90px;}
+.flag-val{font-size:13px;color:var(--ink);line-height:1.5;flex:1;padding:0 16px}
+.flag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.flag-dot.yes{background:#5C9E6B}
+.flag-dot.no{background:var(--rust)}
+.finale{background:var(--ink);min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 48px;position:relative;overflow:hidden;}
+.finale::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(196,68,28,.1) 0%,transparent 70%),radial-gradient(ellipse 30% 30% at 20% 80%,rgba(184,147,63,.08) 0%,transparent 50%);}
+.finale-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.4em;color:var(--rust);margin-bottom:32px;position:relative;z-index:1;}
+.finale-title{font-family:'Playfair Display',serif;font-size:clamp(52px,10vw,130px);font-weight:900;line-height:.88;color:var(--cream);position:relative;z-index:1;margin-bottom:8px;}
+.finale-title .italic-line{font-style:italic;font-weight:400;color:rgba(245,240,232,.35);display:block;}
+.finale-sub{font-size:14px;line-height:1.9;color:rgba(245,240,232,.4);max-width:500px;margin:32px auto 48px;position:relative;z-index:1;}
+.finale-email{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,36px);font-style:italic;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,147,63,.3);padding-bottom:6px;position:relative;z-index:1;transition:all .2s;}
+.finale-email:hover{border-bottom-color:var(--gold)}
+footer{background:var(--ink);padding:24px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;}
+footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-family:'Bebas Neue',sans-serif}
+.live-dot{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-family:'Bebas Neue',sans-serif}
+.live-dot::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#5C9E6B;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.rx{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rx.in{opacity:1;transform:none}
+.rx-l{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rx-l.in{opacity:1;transform:none}
+.rx-r{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rx-r.in{opacity:1;transform:none}
+/* ── TABLET (≤900px) ── */
+@media(max-width:900px){
+  body{cursor:auto}
+  #cur{display:none}
+
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{grid-column:1;grid-row:1;padding:40px 28px 48px;border-right:none;border-bottom:1px solid rgba(13,13,13,.1)}
+  .hero-right{grid-column:1;grid-row:2;min-height:60vw;max-height:520px}
+  .hero-num{font-size:120px}
+  .hero-stats{gap:0;flex-wrap:wrap}
+  .stat{min-width:120px}
+
+  .chapter-mark{padding:0 28px}
+  .chapter-mark .ch-line{display:none}
+
+  .about{grid-template-columns:1fr;min-height:auto}
+  .about-left{padding:60px 28px;border-right:none;border-bottom:1px solid rgba(13,13,13,.08);gap:36px}
+  .about-right{padding:40px 28px 60px}
+
+  .career{padding:64px 28px}
+  .career-header{margin-bottom:48px}
+  .job{grid-template-columns:60px 1fr;gap:20px}
+  .job-badge{display:none}
+
+  .hobbies{padding:64px 0}
+  .hobbies-header{padding:0 28px;margin-bottom:48px}
+  .hobbies-strip{padding:0 28px}
+  .hobby{width:240px;height:320px}
+
+  .looking{grid-template-columns:1fr;min-height:auto}
+  .looking-left{padding:64px 28px 40px;border-right:none;border-bottom:1px solid rgba(13,13,13,.08)}
+  .looking-right{padding:40px 28px 64px}
+
+  .finale{padding:80px 28px}
+  footer{padding:20px 28px;flex-direction:column;gap:12px;text-align:center}
+}
+
+/* ── MOBILE (≤600px) ── */
+@media(max-width:600px){
+  .marquee-track span{font-size:11px;padding:0 24px}
+
+  .hero-left{padding:28px 20px 40px}
+  .hero-right{min-height:70vw;max-height:420px}
+  .hero-topbar{flex-direction:column;gap:8px}
+  .hero-issue{text-align:left}
+  .hero-headline{padding:32px 0 24px}
+  .hero-desc{font-size:12px;margin-top:16px}
+  .hero-stats{flex-wrap:wrap;gap:0;padding-top:24px;margin-top:28px}
+  .stat{flex:0 0 50%;padding:12px 16px 12px 0;margin:0;border-right:none;border-bottom:1px solid rgba(13,13,13,.08)}
+  .stat:nth-child(odd){border-right:1px solid rgba(13,13,13,.08)}
+  .stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
+  .stat-n{font-size:28px}
+  .hero-right-content{padding:24px 20px}
+  .hero-right-quote{font-size:18px;margin-bottom:20px}
+  .scroll-hint{display:none}
+
+  .chapter-mark{padding:0 20px}
+  .chapter-mark .ch-num{font-size:80px}
+  .chapter-mark .ch-title{font-size:28px;padding-left:16px}
+
+  .about-left{padding:48px 20px;gap:28px}
+  .about-right{padding:32px 20px 48px}
+  .pullquote{font-size:24px}
+  .body-text{font-size:13px}
+  .trait-row{gap:12px;padding:14px 0}
+  .t-tag{display:none}
+
+  .career{padding:48px 20px}
+  .career-header{margin-bottom:36px}
+  .job{grid-template-columns:1fr;gap:6px;padding:28px 0}
+  .job-year{font-size:11px}
+  .job-title{font-size:19px}
+  .job-desc{font-size:12px}
+
+  .hobbies{padding:48px 0}
+  .hobbies-header{padding:0 20px;margin-bottom:36px}
+  .hobbies-strip{padding:0 20px}
+  .hobby{width:220px;height:300px;padding:20px;margin-right:14px}
+  .hobby-name-big{font-size:22px}
+
+  .looking-left{padding:48px 20px 32px}
+  .looking-right{padding:28px 20px 48px}
+  .looking-big{font-size:30px}
+  .flag-row{padding:16px 0;gap:8px}
+  .flag-label{font-size:9px;width:70px}
+  .flag-val{font-size:12px;padding:0 10px}
+
+  .finale{padding:64px 20px;min-height:auto}
+  .finale-sub{font-size:13px;margin:24px auto 36px}
+
+  footer{padding:20px;gap:10px}
+  footer p{font-size:9px}
+  .live-dot{font-size:9px}
+}
+
+/* ── SMALL PHONES (≤380px) ── */
+@media(max-width:380px){
+  .hero-left{padding:24px 16px 36px}
+  .hero-right{min-height:75vw}
+  .chapter-mark{padding:0 16px}
+  .about-left,.about-right{padding-left:16px;padding-right:16px}
+  .career{padding:40px 16px}
+  .hobbies-header{padding:0 16px}
+  .hobbies-strip{padding:0 16px}
+  .hobby{width:200px;height:280px}
+  .looking-left,.looking-right{padding-left:16px;padding-right:16px}
+  .finale{padding:52px 16px}
+  footer{padding:16px}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>GENUINE HUMAN</span><span class="accent">✦</span>
+    <span>NOT ON TINDER</span><span class="accent">✦</span>
+    <span>ACTUALLY READS</span><span class="accent">✦</span>
+    <span>CALLS HIS MOM</span><span class="accent">✦</span>
+    <span>GREAT PLAYLIST CURATOR</span><span class="accent">✦</span>
+    <span>AVAILABLE — NOT DESPERATE</span><span class="accent">✦</span>
+    <span>VEGETARIAN — EASY TO FEED</span><span class="accent">✦</span>
+    <span>ANIMAL LOVER</span><span class="accent">✦</span>
+    <span>GENUINE HUMAN</span><span class="accent">✦</span>
+    <span>NOT ON TINDER</span><span class="accent">✦</span>
+    <span>ACTUALLY READS</span><span class="accent">✦</span>
+    <span>CALLS HIS MOM</span><span class="accent">✦</span>
+    <span>GREAT PLAYLIST CURATOR</span><span class="accent">✦</span>
+    <span>AVAILABLE — NOT DESPERATE</span><span class="accent">✦</span>
+    <span>VEGETARIAN — EASY TO FEED</span><span class="accent">✦</span>
+    <span>ANIMAL LOVER</span><span class="accent">✦</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-topbar">
+      <div class="hero-label">Vol. 01 — The Man</div>
+      <div class="hero-issue">
+        New York City<br>
+        Age 25 · Single<br>
+        Est. 2000
+      </div>
+    </div>
+    <div class="hero-headline">
+      <div class="name-mega">
+        Rahul
+        <span class="stroke">Saini</span>
+      </div>
+      <div class="name-sub">A man worth knowing, apparently.</div>
+      <p class="hero-desc">
+        This is my dating profile. I made it a website because a 200-character bio wasn't going to cut it. Scroll down. Judge me fairly.
+      </p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">5'7</div>
+        <div class="stat-l">Height</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">4–5×</div>
+        <div class="stat-l">Gym / Week</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">Yes</div>
+        <div class="stat-l">Animal Lover</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">Small</div>
+        <div class="stat-l">Circle. Loyal.</div>
+      </div>
+    </div>
+    <div class="hero-num">01</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-bg"></div>
+    <div class="hero-photo-overlay"></div>
+    <img src="./Screenshot_20260307_223152_Gallery.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;">
+    <div class="hero-right-content">
+      <div class="hero-right-tag">First Impression</div>
+      <p class="hero-right-quote">
+        "I show up on time,<br>
+        I listen when you talk,<br>
+        I laugh at the <em>right things.</em>"
+      </p>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        Scroll to read more
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-mark rx">
+  <div class="ch-num">01</div>
+  <div class="ch-title">Who <em>I Am</em></div>
+  <div class="ch-line"></div>
+</div>
+
+<section class="about">
+  <div class="about-left">
+    <p class="pullquote rx">
+      I'm the kind of person who <em>shows up</em> — quietly, consistently, and fully present.
+    </p>
+    <p class="body-text rx">
+      Grew up in India, built a life in New York. I work in cybersecurity and I'm genuinely passionate about it — but I promise I won't talk about it all night unless you ask.<br><br>
+      I'm an introvert. I won't fill every silence with noise, and I'm okay with that — most of the best conversations have pauses in them. I open up gradually, but when I do, I'm all in. I'm ambitious without being obsessive, curious about almost everything, and <strong>I have a sense of humor that lands somewhere between dark and surprisingly wholesome.</strong><br><br>
+      Fair warning: I get a little nervous at first. It's been a while since I've done this, and I'd rather just be honest about that than pretend I'm smoother than I am. Give it ten minutes — I promise it gets better.
+    </p>
+    <div class="trait-grid rx">
+      <div class="trait-row">
+        <span class="t-emoji">🧠</span>
+        <span class="t-text">Overthinker by nature, calm when it actually counts</span>
+        <span class="t-tag">Feature</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">😂</span>
+        <span class="t-text">Dark humor with a warm heart — people seem to like it</span>
+        <span class="t-tag">Verified</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">🥦</span>
+        <span class="t-text">Vegetarian — honestly makes restaurant decisions easier</span>
+        <span class="t-tag">Low Maintenance</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">🐾</span>
+        <span class="t-text">Loves animals and nature — genuinely, not just as a bio line</span>
+        <span class="t-tag">True</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">📞</span>
+        <span class="t-text">Calls his mom. Every week. Just saying.</span>
+        <span class="t-tag">Family Oriented</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-right rx-r">
+    <img src="./2.jpg" style="width:100%;aspect-ratio:4/5;object-fit:cover;">
+  </div>
+</section>
+
+<div class="chapter-mark rx">
+  <div class="ch-num">02</div>
+  <div class="ch-title">What <em>I Do</em></div>
+  <div class="ch-line"></div>
+</div>
+
+<section class="career">
+  <div class="career-header rx">
+    <div class="career-label">Professional Record</div>
+    <div class="career-title">The <em>work</em><br>that shaped me.</div>
+  </div>
+  <div class="jobs">
+    <div class="job rx">
+      <div class="job-year">NOW</div>
+      <div>
+        <div class="job-title">Security Operations Engineer</div>
+        <div class="job-co">NYC · New York</div>
+        <div class="job-desc">I keep systems secure and running — which basically means I'm the person you want around when things go wrong. I care about what I do, I'm good at it, and I don't bring it home. Work stays at work.</div>
+      </div>
+      <div class="job-badge">Current Role</div>
+    </div>
+    <div class="job rx">
+      <div class="job-year">2023</div>
+      <div>
+        <div class="job-title">John Jay College of Criminal Justice</div>
+        <div class="job-co">B.S. in Computer Science & Information Technology</div>
+        <div class="job-desc">Studied hard enough to graduate, spent the rest of the time on CTFs, hackathons, and figuring out what I actually cared about. Turned out: a lot of things.</div>
+      </div>
+      <div class="job-badge">Foundation</div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-mark rx">
+  <div class="ch-num">03</div>
+  <div class="ch-title">What I'm <em>Into</em></div>
+  <div class="ch-line"></div>
+</div>
+
+<section class="hobbies">
+  <div class="hobbies-header rx">
+    <div class="hobbies-label">Beyond the Job Title</div>
+    <div class="hobbies-title">The things that <em>actually</em> define me.</div>
+  </div>
+  <div class="hobbies-strip" id="strip">
+    <div class="hobby" data-color="rust">
+      <div class="hobby-bg">🏔️</div>
+      <div class="hobby-num">01 / OUTDOORS</div>
+      <div class="hobby-name-big">The Outdoors</div>
+      <div class="hobby-desc-s">Trekking, running, long walks with no destination. I want to spend serious time in the mountains someday. Fresh air clears my head like nothing else.</div>
+    </div>
+    <div class="hobby">
+      <div class="hobby-bg">🍳</div>
+      <div class="hobby-num">02 / FOOD</div>
+      <div class="hobby-name-big">Cooking (Trying)</div>
+      <div class="hobby-desc-s">I genuinely try. Sometimes it's great. Sometimes it's a beautiful disaster. Either way, the kitchen smells good and the effort is real.</div>
+    </div>
+    <div class="hobby" data-color="sage">
+      <div class="hobby-bg">🎵</div>
+      <div class="hobby-num">03 / MUSIC</div>
+      <div class="hobby-name-big">Music</div>
+      <div class="hobby-desc-s">A day without music isn't really a day. From waking up to winding down — there's always something playing. Taste is wide, judgment is minimal.</div>
+    </div>
+    <div class="hobby" data-color="rust">
+      <div class="hobby-bg">🎬</div>
+      <div class="hobby-num">04 / FILMS</div>
+      <div class="hobby-name-big">Movie Nights</div>
+      <div class="hobby-desc-s">Thriller, detective, sci-fi — I love a film that makes you think. Very open to a good movie night. Will absolutely have opinions afterward.</div>
+    </div>
+    <div class="hobby">
+      <div class="hobby-bg">💭</div>
+      <div class="hobby-num">05 / IDEAS</div>
+      <div class="hobby-name-big">Deep Thoughts</div>
+      <div class="hobby-desc-s">I spend a lot of time thinking about how things work and why. Spirituality, science, philosophy — it all connects somewhere. Good conversation is my favorite hobby.</div>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-mark rx">
+  <div class="ch-num">04</div>
+  <div class="ch-title">What I'm <em>Looking For</em></div>
+  <div class="ch-line"></div>
+</div>
+
+<section class="looking">
+  <div class="looking-left rx-l">
+    <div class="looking-label">The Honest Part</div>
+    <h2 class="looking-big">Someone <em>real</em><br>to share the<br>ordinary with.</h2>
+    <p class="looking-body">I'm not chasing perfect. I want someone who's genuinely interested in building something — not just the exciting early part, but the real part. Someone I can be quiet with, someone who'll tell me when I'm wrong, and someone who finds enough joy in small things that the big things feel even better. I'll bring flowers. Not just on special occasions.</p>
+  </div>
+  <div class="looking-right rx-r">
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Genuinely wants a relationship, not just the idea of one</div>
+      <div class="flag-dot yes"></div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Will tell me when I'm wrong — kindly, but honestly</div>
+      <div class="flag-dot yes"></div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Patient with someone who's a little rusty at this</div>
+      <div class="flag-dot yes"></div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Will dance with me even though neither of us knows how</div>
+      <div class="flag-dot yes"></div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Comfortable with silence that doesn't need filling</div>
+      <div class="flag-dot yes"></div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-label">Green Flag</div>
+      <div class="flag-val">Has her own passions she can talk about for hours</div>
+      <div class="flag-dot yes"></div>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="finale-label rx">If you've made it this far</div>
+  <h2 class="finale-title rx">
+    Just say<br>
+    <span class="italic-line">something.</span>
+  </h2>
+  <p class="finale-sub rx">No perfect opener needed. I might take a second to warm up — that's just me being honest — but I promise the conversation gets good. Worst case, nothing happens. Best case, you'll have a story worth telling.</p>
+  <a href="mailto:Hicanwetalk@proton.me" class="finale-email rx">Hicanwetalk@proton.me</a>
+</section>
+
+<footer>
+  <p>© 2026 — RAHUL SAINI — NOT AFFILIATED WITH LINKEDIN</p>
+  <div class="live-dot">CURRENTLY SINGLE &amp; ACCEPTING APPLICATIONS</div>
+</footer>
+
+<script>
+// Hide cursor on touch devices
+const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+const cur = document.getElementById('cur');
+if(isTouchDevice){ cur.style.display='none'; document.body.style.cursor='auto'; }
+else {
+  let cx=window.innerWidth/2, cy=window.innerHeight/2;
+  document.addEventListener('mousemove', e=>{ cx=e.clientX; cy=e.clientY; cur.style.left=cx+'px'; cur.style.top=cy+'px'; });
+  document.querySelectorAll('a,button,.hobby,.job').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting) setTimeout(()=>e.target.classList.add('in'), i*60); });
+},{threshold:0.08});
+document.querySelectorAll('.rx,.rx-l,.rx-r').forEach(el=>obs.observe(el));
+
+// Hobby strip — mouse drag + touch scroll
+const strip = document.getElementById('strip');
+let isDown=false, startX, scrollLeft;
+strip.addEventListener('mousedown', e=>{isDown=true;strip.style.cursor='grabbing';startX=e.pageX-strip.offsetLeft;scrollLeft=strip.scrollLeft});
+strip.addEventListener('mouseleave',()=>{isDown=false;strip.style.cursor='grab'});
+strip.addEventListener('mouseup',()=>{isDown=false;strip.style.cursor='grab'});
+strip.addEventListener('mousemove',e=>{ if(!isDown)return;e.preventDefault(); strip.scrollLeft=scrollLeft-(e.pageX-strip.offsetLeft-startX); });
+// Native touch scroll already works on mobile — no extra JS needed
+</script>
+</body>
+</html>
