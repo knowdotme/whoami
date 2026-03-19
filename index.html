@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahul — A Man Worth Knowing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
@@ -21,11 +21,15 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',serif;overflow-x:hidden;cursor:none;}
 #cur{position:fixed;width:12px;height:12px;background:var(--rust);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply}
 #cur.big{width:60px;height:60px;background:rgba(196,68,28,0.15)}
+
+/* MARQUEE */
 .marquee-wrap{overflow:hidden;background:var(--ink);padding:10px 0;position:relative;z-index:10}
-.marquee-track{display:flex;white-space:nowrap;animation:marquee 18s linear infinite}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite}
 .marquee-track span{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.25em;color:var(--cream);padding:0 40px;opacity:.7}
 .marquee-track span.accent{color:var(--rust);opacity:1}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden;}
 .hero-left{grid-column:1;grid-row:1/4;padding:60px 48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(13,13,13,0.12);position:relative;}
 .hero-right{grid-column:2;grid-row:1/4;position:relative;overflow:hidden;background:var(--ink);min-height:100vh;}
@@ -51,11 +55,15 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .hero-right-quote em{color:var(--rust);font-style:normal}
 .scroll-hint{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);}
 .scroll-line{width:40px;height:1px;background:rgba(255,255,255,.2)}
+
+/* CHAPTER MARKS */
 .chapter-mark{display:flex;align-items:center;gap:0;padding:0 48px;overflow:hidden;}
 .chapter-mark .ch-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,18vw,220px);line-height:1;color:var(--ink);opacity:.05;flex-shrink:0;}
 .chapter-mark .ch-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,64px);font-weight:900;color:var(--ink);padding-left:32px;flex:1;}
 .chapter-mark .ch-title em{color:var(--rust);font-style:italic}
 .chapter-mark .ch-line{flex:1;height:1px;background:var(--ink);opacity:.12;margin-left:32px}
+
+/* ABOUT */
 .about{display:grid;grid-template-columns:1fr 1.2fr;min-height:80vh;background:var(--paper);}
 .about-left{padding:80px 48px;border-right:1px solid rgba(13,13,13,0.08);display:flex;flex-direction:column;gap:48px;}
 .about-right{padding:80px 48px;display:flex;flex-direction:column;justify-content:center;}
@@ -70,6 +78,8 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .t-emoji{font-size:20px;flex-shrink:0}
 .t-text{font-size:13px;color:var(--ink);line-height:1.5}
 .t-tag{margin-left:auto;font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.25em;padding:4px 10px;background:var(--ink);color:var(--cream);flex-shrink:0;}
+
+/* CAREER */
 .career{background:var(--ink);padding:100px 48px;position:relative;overflow:hidden;}
 .career::before{content:'WORK';position:absolute;right:-20px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,255,255,.02);letter-spacing:.1em;pointer-events:none;}
 .career-header{margin-bottom:72px}
@@ -85,6 +95,8 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .job-co{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
 .job-desc{font-size:13px;line-height:1.9;color:rgba(255,255,255,.4);max-width:540px}
 .job-badge{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.2em;padding:6px 14px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);white-space:nowrap;align-self:flex-start;}
+
+/* HOBBIES */
 .hobbies{background:var(--cream);padding:100px 0}
 .hobbies-header{padding:0 48px;margin-bottom:72px}
 .hobbies-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);margin-bottom:16px}
@@ -108,6 +120,8 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .hobby[data-color="sage"] .hobby-num{color:rgba(255,255,255,.2)}
 .hobby[data-color="sage"] .hobby-name-big{color:var(--cream)}
 .hobby[data-color="sage"] .hobby-desc-s{color:rgba(255,255,255,.4)}
+
+/* LOOKING FOR */
 .looking{background:var(--paper);display:grid;grid-template-columns:1fr 1fr;min-height:70vh;}
 .looking-left{padding:100px 48px;border-right:1px solid rgba(13,13,13,.08);display:flex;flex-direction:column;justify-content:center;}
 .looking-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--rust);margin-bottom:20px}
@@ -122,6 +136,8 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .flag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .flag-dot.yes{background:#5C9E6B}
 .flag-dot.no{background:var(--rust)}
+
+/* FINALE */
 .finale{background:var(--ink);min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 48px;position:relative;overflow:hidden;}
 .finale::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(196,68,28,.1) 0%,transparent 70%),radial-gradient(ellipse 30% 30% at 20% 80%,rgba(184,147,63,.08) 0%,transparent 50%);}
 .finale-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.4em;color:var(--rust);margin-bottom:32px;position:relative;z-index:1;}
@@ -130,50 +146,48 @@ body{background:var(--cream);color:var(--ink);font-family:'Libre Baskerville',se
 .finale-sub{font-size:14px;line-height:1.9;color:rgba(245,240,232,.4);max-width:500px;margin:32px auto 48px;position:relative;z-index:1;}
 .finale-email{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,36px);font-style:italic;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,147,63,.3);padding-bottom:6px;position:relative;z-index:1;transition:all .2s;}
 .finale-email:hover{border-bottom-color:var(--gold)}
+
+/* FOOTER */
 footer{background:var(--ink);padding:24px 48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;}
 footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-family:'Bebas Neue',sans-serif}
 .live-dot{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-family:'Bebas Neue',sans-serif}
 .live-dot::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#5C9E6B;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* REVEAL ANIMATIONS */
 .rx{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rx.in{opacity:1;transform:none}
 .rx-l{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rx-l.in{opacity:1;transform:none}
 .rx-r{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rx-r.in{opacity:1;transform:none}
+
 /* ── TABLET (≤900px) ── */
 @media(max-width:900px){
   body{cursor:auto}
   #cur{display:none}
-
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{grid-column:1;grid-row:1;padding:40px 28px 48px;border-right:none;border-bottom:1px solid rgba(13,13,13,.1)}
   .hero-right{grid-column:1;grid-row:2;min-height:60vw;max-height:520px}
   .hero-num{font-size:120px}
   .hero-stats{gap:0;flex-wrap:wrap}
   .stat{min-width:120px}
-
   .chapter-mark{padding:0 28px}
   .chapter-mark .ch-line{display:none}
-
   .about{grid-template-columns:1fr;min-height:auto}
   .about-left{padding:60px 28px;border-right:none;border-bottom:1px solid rgba(13,13,13,.08);gap:36px}
   .about-right{padding:40px 28px 60px}
-
   .career{padding:64px 28px}
   .career-header{margin-bottom:48px}
   .job{grid-template-columns:60px 1fr;gap:20px}
   .job-badge{display:none}
-
   .hobbies{padding:64px 0}
   .hobbies-header{padding:0 28px;margin-bottom:48px}
   .hobbies-strip{padding:0 28px}
   .hobby{width:240px;height:320px}
-
   .looking{grid-template-columns:1fr;min-height:auto}
   .looking-left{padding:64px 28px 40px;border-right:none;border-bottom:1px solid rgba(13,13,13,.08)}
   .looking-right{padding:40px 28px 64px}
-
   .finale{padding:80px 28px}
   footer{padding:20px 28px;flex-direction:column;gap:12px;text-align:center}
 }
@@ -181,7 +195,6 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
 /* ── MOBILE (≤600px) ── */
 @media(max-width:600px){
   .marquee-track span{font-size:11px;padding:0 24px}
-
   .hero-left{padding:28px 20px 40px}
   .hero-right{min-height:70vw;max-height:420px}
   .hero-topbar{flex-direction:column;gap:8px}
@@ -196,41 +209,34 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   .hero-right-content{padding:24px 20px}
   .hero-right-quote{font-size:18px;margin-bottom:20px}
   .scroll-hint{display:none}
-
   .chapter-mark{padding:0 20px}
   .chapter-mark .ch-num{font-size:80px}
   .chapter-mark .ch-title{font-size:28px;padding-left:16px}
-
   .about-left{padding:48px 20px;gap:28px}
   .about-right{padding:32px 20px 48px}
   .pullquote{font-size:24px}
   .body-text{font-size:13px}
   .trait-row{gap:12px;padding:14px 0}
   .t-tag{display:none}
-
   .career{padding:48px 20px}
   .career-header{margin-bottom:36px}
   .job{grid-template-columns:1fr;gap:6px;padding:28px 0}
   .job-year{font-size:11px}
   .job-title{font-size:19px}
   .job-desc{font-size:12px}
-
   .hobbies{padding:48px 0}
   .hobbies-header{padding:0 20px;margin-bottom:36px}
   .hobbies-strip{padding:0 20px}
   .hobby{width:220px;height:300px;padding:20px;margin-right:14px}
   .hobby-name-big{font-size:22px}
-
   .looking-left{padding:48px 20px 32px}
   .looking-right{padding:28px 20px 48px}
   .looking-big{font-size:30px}
   .flag-row{padding:16px 0;gap:8px}
   .flag-label{font-size:9px;width:70px}
   .flag-val{font-size:12px;padding:0 10px}
-
   .finale{padding:64px 20px;min-height:auto}
   .finale-sub{font-size:13px;margin:24px auto 36px}
-
   footer{padding:20px;gap:10px}
   footer p{font-size:9px}
   .live-dot{font-size:9px}
@@ -255,27 +261,29 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
 <body>
 <div id="cur"></div>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span>GENUINE HUMAN</span><span class="accent">✦</span>
-    <span>NOT ON TINDER</span><span class="accent">✦</span>
+    <span>CLEAN ROOM — VERIFIED</span><span class="accent">✦</span>
     <span>ACTUALLY READS</span><span class="accent">✦</span>
     <span>CALLS HIS MOM</span><span class="accent">✦</span>
     <span>GREAT PLAYLIST CURATOR</span><span class="accent">✦</span>
     <span>AVAILABLE — NOT DESPERATE</span><span class="accent">✦</span>
     <span>VEGETARIAN — EASY TO FEED</span><span class="accent">✦</span>
-    <span>ANIMAL LOVER</span><span class="accent">✦</span>
+    <span>ORGANIZED. YES REALLY.</span><span class="accent">✦</span>
     <span>GENUINE HUMAN</span><span class="accent">✦</span>
-    <span>NOT ON TINDER</span><span class="accent">✦</span>
+    <span>CLEAN ROOM — VERIFIED</span><span class="accent">✦</span>
     <span>ACTUALLY READS</span><span class="accent">✦</span>
     <span>CALLS HIS MOM</span><span class="accent">✦</span>
     <span>GREAT PLAYLIST CURATOR</span><span class="accent">✦</span>
     <span>AVAILABLE — NOT DESPERATE</span><span class="accent">✦</span>
     <span>VEGETARIAN — EASY TO FEED</span><span class="accent">✦</span>
-    <span>ANIMAL LOVER</span><span class="accent">✦</span>
+    <span>ORGANIZED. YES REALLY.</span><span class="accent">✦</span>
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-topbar">
@@ -336,6 +344,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   </div>
 </section>
 
+<!-- CHAPTER 01 -->
 <div class="chapter-mark rx">
   <div class="ch-num">01</div>
   <div class="ch-title">Who <em>I Am</em></div>
@@ -350,7 +359,8 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
     <p class="body-text rx">
       Grew up in India, built a life in New York. I work in cybersecurity and I'm genuinely passionate about it — but I promise I won't talk about it all night unless you ask.<br><br>
       I'm an introvert. I won't fill every silence with noise, and I'm okay with that — most of the best conversations have pauses in them. I open up gradually, but when I do, I'm all in. I'm ambitious without being obsessive, curious about almost everything, and <strong>I have a sense of humor that lands somewhere between dark and surprisingly wholesome.</strong><br><br>
-      Fair warning: I get a little nervous at first. It's been a while since I've done this, and I'd rather just be honest about that than pretend I'm smoother than I am. Give it ten minutes — I promise it gets better.
+      Also — and I say this without bragging — my room is actually clean. Not "I cleaned it because someone's coming over" clean. Just always clean. Organized, sorted, everything has a place. I don't know if that's a green flag or a personality trait but women seem to appreciate it.<br><br>
+      Fair warning: I get a little nervous at first. It's been a while since I've done this, and I'd rather be honest about that than pretend I'm smoother than I am. Give it ten minutes — I promise it gets better.
     </p>
     <div class="trait-grid rx">
       <div class="trait-row">
@@ -362,6 +372,16 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
         <span class="t-emoji">😂</span>
         <span class="t-text">Dark humor with a warm heart — people seem to like it</span>
         <span class="t-tag">Verified</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">🧹</span>
+        <span class="t-text">Clean room. Not "company's coming" clean — always clean.</span>
+        <span class="t-tag">Rare</span>
+      </div>
+      <div class="trait-row">
+        <span class="t-emoji">📐</span>
+        <span class="t-text">Organized, has a system, everything has a place — it's a whole thing</span>
+        <span class="t-tag">Green Flag</span>
       </div>
       <div class="trait-row">
         <span class="t-emoji">🥦</span>
@@ -385,6 +405,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   </div>
 </section>
 
+<!-- CHAPTER 02 -->
 <div class="chapter-mark rx">
   <div class="ch-num">02</div>
   <div class="ch-title">What <em>I Do</em></div>
@@ -410,7 +431,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
       <div class="job-year">2023</div>
       <div>
         <div class="job-title">John Jay College of Criminal Justice</div>
-        <div class="job-co">B.S. in Computer Science & Information Technology</div>
+        <div class="job-co">B.S. in Computer Science &amp; Information Technology</div>
         <div class="job-desc">Studied hard enough to graduate, spent the rest of the time on CTFs, hackathons, and figuring out what I actually cared about. Turned out: a lot of things.</div>
       </div>
       <div class="job-badge">Foundation</div>
@@ -418,6 +439,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   </div>
 </section>
 
+<!-- CHAPTER 03 -->
 <div class="chapter-mark rx">
   <div class="ch-num">03</div>
   <div class="ch-title">What I'm <em>Into</em></div>
@@ -463,6 +485,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   </div>
 </section>
 
+<!-- CHAPTER 04 -->
 <div class="chapter-mark rx">
   <div class="ch-num">04</div>
   <div class="ch-title">What I'm <em>Looking For</em></div>
@@ -509,6 +532,7 @@ footer p{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.2);font-fami
   </div>
 </section>
 
+<!-- FINALE -->
 <section class="finale">
   <div class="finale-label rx">If you've made it this far</div>
   <h2 class="finale-title rx">
@@ -544,14 +568,13 @@ const obs = new IntersectionObserver(entries=>{
 },{threshold:0.08});
 document.querySelectorAll('.rx,.rx-l,.rx-r').forEach(el=>obs.observe(el));
 
-// Hobby strip — mouse drag + touch scroll
+// Hobby strip — mouse drag
 const strip = document.getElementById('strip');
 let isDown=false, startX, scrollLeft;
 strip.addEventListener('mousedown', e=>{isDown=true;strip.style.cursor='grabbing';startX=e.pageX-strip.offsetLeft;scrollLeft=strip.scrollLeft});
 strip.addEventListener('mouseleave',()=>{isDown=false;strip.style.cursor='grab'});
 strip.addEventListener('mouseup',()=>{isDown=false;strip.style.cursor='grab'});
 strip.addEventListener('mousemove',e=>{ if(!isDown)return;e.preventDefault(); strip.scrollLeft=scrollLeft-(e.pageX-strip.offsetLeft-startX); });
-// Native touch scroll already works on mobile — no extra JS needed
 </script>
 </body>
 </html>
